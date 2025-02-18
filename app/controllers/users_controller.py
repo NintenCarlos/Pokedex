@@ -18,7 +18,7 @@ def login():
         return jsonify ("No tienes todas las credenciales", 400)
     user = user_model.get_by_email_password(email, password)
     if not user: 
-        return jsonify("No se encontró el usuario", 400)
+        return jsonify("No se encontró el usuario", 404)
     return jsonify(user, 200)
 
 
