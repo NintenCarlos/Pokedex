@@ -1,24 +1,32 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, request
 from app.models.factory import ModelFactory
 from bson import ObjectId
+from app.tools.response_manager import ResponseManager
+from flask_jwt_extended import jwt_required
 
 bp = Blueprint("pokemons", __name__, url_prefix="/pokemon")
 pkmn_model = ModelFactory.get_model("pokemons")
+RM = ResponseManager()
 
-@bp.route("/all", method=["GET"])
+# * Mostrar todos los Pokémon
+@bp.route("/all", methods = ["GET"])
+@jwt_required()
 def find_all_pokemon (): 
     pokemons = pkmn_model.find_all()
-    return jsonify(pokemons, 200)
+    return RM.success(pokemons)
 
-@bp.route("/<string:pkmn_id>", method=["GET"])
-def get_pokemon(pkmn_id): 
+
+# * Mostrar un Pokémon
+@bp.route("/<string:pokemon_id>", methods = ["GET"])
+@jwt_required()
+def get_pokemon(pokemon_id): 
     try:
-        pokemon = pkmn_model.find_by_id(ObjectId(pkmn_id))
+        pokemon = pkmn_model.find_by_id(ObjectId(pokemon_id))
         
         if not pokemon: 
-            return jsonify("No se encontró el Pokémon que buscas", 404)
+            return RM.error("No se encontró el Pokémon que buscas")
         else: 
-            return jsonify(pokemon, 200)
+            return RM.success(pokemon["Name"])
         
     except:
-        return jsonify("Hubo un error", 400)
+        return RM.error("Hubo un error")

@@ -1,4 +1,4 @@
-from app.models.pokemon import Pokemon
+from app.models.pkmn import Pokemon
 from app.models.pkmn_favorite import PokemonFavorites
 from app.models.user import User
 
@@ -14,4 +14,4 @@ class ModelFactory:
         if collection_name in models: 
             return models[collection_name]()
         else: 
-            raise ValueError(f"La colección {collection_name} no existe.")
+            raise ValueError(f"La colección: {collection_name} no existe.")

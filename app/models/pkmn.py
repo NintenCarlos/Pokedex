@@ -1,4 +1,3 @@
-from app import mongo
 from app.models.super_class import SuperClass
 
 class Pokemon(SuperClass):
