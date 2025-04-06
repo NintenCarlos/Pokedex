@@ -1,104 +1,70 @@
-import { StatusBar } from "expo-status-bar";
-import {
-  Button,
-  Image,
-  Pressable,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import "react-native-gesture-handler";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Login from "./screens/Login";
+import Register from "./screens/Register";
+import RecoverPassword from "./screens/recoverPassword";
+import PKMNList from "./screens/PKMNList";
+import Unique from "./screens/Unique";
+import Profile from "./screens/Profile";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <View>
-        <Image
-          source={{
-            uri: "https://static.wikia.nocookie.net/espokemon/images/0/02/Pok%C3%A9_Ball_%28Ilustraci%C3%B3n%29.png",
-            width: 200,
-            height: 200,
-          }}
-        />
-      </View>
+const Stack = createStackNavigator();
 
-      <View>
-        <Text style={styles.title}>Iniciar Sesión</Text>
-        <Text style={styles.label}>Correo:</Text>
-        <TextInput style={styles.input} />
-        <Text style={styles.label}>Contraseña:</Text>
-        <TextInput style={styles.input} />
+const App = () => {
+   return (
+      <NavigationContainer>
+         <Stack.Navigator>
+            <Stack.Screen
+               name="Login"
+               component={Login}
+               options={{
+                  headerShown: false,
+               }}
+            />
 
-        <Pressable style={styles.send}>
-          <Text style= {styles.send.textSend}>Iniciar Sesión</Text>
-        </Pressable>
-      </View>
+            <Stack.Screen
+               name="Profile"
+               component={Profile}
+               options={{
+                  headerShown: false,
+               }}
+            />
 
-      <View style={styles.containerFooter}>
-        <Text style={styles.containerFooter.text} >Recordar Contraseña</Text>
-        <Text style={styles.containerFooter.text}>Registrate</Text>
-      </View>
-    </View>
-  );
-}
+            <Stack.Screen
+               name="Register"
+               component={Register}
+               options={{
+                  headerShown: false,
+               }}
+            />
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-  },
+            <Stack.Screen
+               name="RecoverPassword"
+               component={RecoverPassword}
+               options={{
+                  headerShown: false,
+               }}
+            />
 
-  title: {
-    fontSize: 30,
-    color: "red",
-    fontWeight: "bold",
-    textAlign: "center",
-    marginBottom: 10,
-  },
+            <Stack.Screen
+               name="Unique"
+               component={Unique}
+               options={{
+                  headerShown: false,
+               }}
+            />
 
-  label: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
+            <Stack.Screen
+               name="List"
+               component={PKMNList}
+               options={{
+                  headerShown: false,
+               }}
+            />
+         </Stack.Navigator>
+      </NavigationContainer>
+   );
+};
 
-  input: {
-    borderColor: "black",
-    padding: 10,
-    borderWidth: 1,
-    borderRadius: 10,
-    fontSize: 15,
-    width: "auto",
-    height: 45,
-    marginBottom: 15,
-  },
-
-  send: {
-    backgroundColor: 'red',
-    width: 'auto',
-    height: 'auto',
-    padding: 10,
-    borderRadius: 10,
-    marginVertical: 15,
-    alignItems: 'center',
-    
-    textSend: {
-      color: '#fff',
-      textAlign: 'center',
-      fontSize: 20,
-      fontWeight: 'bold',
-    }
-  },
-
-  containerFooter : {
-    justifyContent: 'space-between',
-    alignItems: 'center',
-
-    text: {
-      fontSize: 20,
-      margin: 5,
-    }
-  }
-
-});
+export default App;
