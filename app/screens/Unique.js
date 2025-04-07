@@ -141,7 +141,6 @@ const styles = StyleSheet.create({
   statsTitle: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "gray",
     marginVertical: 15,
   },
   statRow: {
@@ -160,7 +159,6 @@ const styles = StyleSheet.create({
     height: 10,
     backgroundColor: "#ddd",
     borderRadius: 5,
-    overflow: "hidden",
   },
   progressBarFill: {
     height: "100%",

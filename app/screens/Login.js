@@ -31,7 +31,7 @@ export default function Login() {
                <TextInput
                   style={styles.input}
                   placeholder="Correo electrónico"
-                  keyboardType="email-address"
+                   
                />
             </View>
 
@@ -67,8 +67,7 @@ export default function Login() {
             </Text>
          </View>
 
-         <StatusBar style="auto" />
-      </View>
+        </View>
    );
 }
 

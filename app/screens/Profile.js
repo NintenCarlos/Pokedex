@@ -40,7 +40,7 @@ export default function Profile() {
                <TextInput
                   style={styles.input}
                   placeholder="charly@utma.edu.mx"
-                  keyboardType="email-address"
+                   
                />
             </View>
 
@@ -58,8 +58,7 @@ export default function Profile() {
             </Pressable>
          </View>
 
-         <StatusBar style="auto" />
-      </View>
+        </View>
    );
 }
 

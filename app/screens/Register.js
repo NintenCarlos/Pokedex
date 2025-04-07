@@ -40,7 +40,7 @@ export default function Register() {
                <TextInput
                   style={styles.input}
                   placeholder="Correo electrónico"
-                  keyboardType="email-address"
+                   
                />
             </View>
 
@@ -58,8 +58,7 @@ export default function Register() {
             </Pressable>
          </View>
 
-         <StatusBar style="auto" />
-      </View>
+        </View>
    );
 }
 

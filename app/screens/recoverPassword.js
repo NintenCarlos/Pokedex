@@ -33,7 +33,7 @@ export default function RecoverPassword() {
                <TextInput
                   style={styles.input}
                   placeholder="Correo electrónico"
-                  keyboardType="email-address"
+                   
                />
             </View>
 
@@ -51,8 +51,7 @@ export default function RecoverPassword() {
             </Pressable>
          </View>
 
-         <StatusBar style="auto" />
-      </View>
+        </View>
    );
 }
 
